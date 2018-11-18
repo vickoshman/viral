@@ -10,6 +10,7 @@ namespace Data
     public DateTime PostedTime { get; set; }
     public Post ForPost { get; set; }
     public Comment ForComment { get; set; }
+    public bool IsDeleted { get; set; }
 
     public ICollection<Rating> Ratings { get; set; }
   }

@@ -1,0 +1,64 @@
+﻿@using Data
+@model IEnumerable<WebApp.Models.PostModel>
+
+@{
+    ViewBag.Title = "ListTop";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ListTop</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PostedTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ContentPath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Text)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+      <td>
+        @Html.DisplayFor(modelItem => item.PostedTime)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.ContentPath)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Title)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Text)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Likes)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.Dislikes)
+      </td>
+      <td>
+        @Html.DisplayFor(modelItem => item.CommentCount)
+      </td>
+      <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+        @Html.ActionLink("View", "Get", new { id = item.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+        @Html.ActionLink("Like", "Like", new { id = item.Id })
+        @Html.ActionLink("Dislike", "Dislike", new { id = item.Id })
+      </td>
+    </tr>
+}
+
+</table>

@@ -28,6 +28,7 @@
 
     <div class="container body-content">
         @RenderBody()
+      @Html.ActionLink("View all posts", "GetTop", "Post", new {skip = 0}, null)
         <hr />
         <footer>
             <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>

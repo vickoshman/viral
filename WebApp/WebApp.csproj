@@ -120,17 +120,23 @@
     <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Auth\Signup.cshtml" />
+    <Content Include="Views\Post\Create.cshtml" />
+    <Content Include="Views\Post\Get.cshtml" />
+    <Content Include="Views\Post\GetTop.cshtml" />
+    <Content Include="Views\Post\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\LoginUser.cs" />
+    <Compile Include="Models\PostModel.cs" />
     <Compile Include="Models\SignupUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

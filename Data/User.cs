@@ -11,9 +11,10 @@ namespace Data
     public string Email { get; set; }
     public DateTime RegisteredTime { get; set; }
     public string AvatarPath { get; set; }
+    public bool IsDeleted { get; set; }
 
-    public ICollection<Post> PostedPosts { get; set; }
-    public ICollection<Comment> PostedComments { get; set; }
-    public ICollection<Rating> Ratings { get; set; }
+    public List<Post> PostedPosts { get; set; }
+    public List<Comment> PostedComments { get; set; }
+    public List<Rating> Ratings { get; set; }
   }
 }

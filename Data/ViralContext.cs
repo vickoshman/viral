@@ -6,7 +6,6 @@ namespace Data
   {
     public ViralContext() : base("Server=localhost;Database=ViralDb;Trusted_Connection=True;")
     {
-      Database.SetInitializer<ViralContext>(new DropCreateDatabaseIfModelChanges<ViralContext>());
     }
 
     public DbSet<User> Users { get; set; }

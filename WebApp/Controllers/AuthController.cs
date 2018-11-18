@@ -20,7 +20,11 @@ namespace WebApp.Controllers
       if (Authenticate(authUser, out var user))
       {
         FormsAuthentication.SetAuthCookie(user.Id.ToString(), true);
-        return Redirect(returnUrl);
+
+        if (!string.IsNullOrEmpty(returnUrl))
+          return Redirect(returnUrl);
+
+        return RedirectToAction("Index", "Home");
       }
 
       return View(authUser);

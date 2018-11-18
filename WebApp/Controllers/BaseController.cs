@@ -5,6 +5,8 @@ namespace WebApp.Controllers
 {
   public abstract class BaseController : Controller
   {
+    protected int CurrentUserId => int.Parse(User.Identity.Name);
+
     protected User CurrentUser
     {
       get
