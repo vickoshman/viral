@@ -11,10 +11,11 @@ namespace TestConsole
     {
       using (var cx = new ViralContext())
       {
-        /*var user = new User
+        var user = new User
         {
           Email = "victor.a.koshman@gmail.com",
           Username = "victor",
+          Password = "test",
           RegisteredTime = DateTime.UtcNow
         };
 
@@ -29,10 +30,10 @@ namespace TestConsole
         cx.Users.Add(user);
         user.PostedPosts = new List<Post> { post };
         cx.Posts.Add(post);
-        cx.SaveChanges();*/
-        var user1 = cx.Users.Find(1);
+        cx.SaveChanges();
+        /*var user1 = cx.Users.Find(1);
         var user2 = cx.Users.Find(2);
-        var posts = cx.Posts.Where(p => p.Author.Id == 2).ToList();
+        var posts = cx.Posts.Where(p => p.Author.Id == 2).ToList();*/
       }
 
       Console.WriteLine("Finished");

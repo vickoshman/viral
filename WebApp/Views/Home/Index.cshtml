@@ -1,0 +1,15 @@
+﻿@model Data.User
+
+@{
+  ViewBag.Title = "title";
+}
+
+@if (User.Identity.IsAuthenticated)
+{
+  <h2>Welcome, @Model.Username</h2>
+  @Html.ActionLink("Logout", "Logout", "Auth")
+}
+else
+{
+  @Html.ActionLink("Sign up", "Signup", "Auth")
+}
