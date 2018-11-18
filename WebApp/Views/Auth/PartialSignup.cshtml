@@ -1,0 +1,83 @@
+﻿@model WebApp.Models.AuthUserModel
+
+<div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="modal-top-menu">
+          <div class="half">
+            <button class="btn btn-link btn-block active-ind" rel="register-window">Register new account</button>
+          </div>
+          <div class="half">
+            <button class="btn btn-link btn-block" rel="login-window">Login</button>
+          </div>
+        </div>
+        <div class="modal-window register-window">
+          @using (Html.BeginForm("Signup", "Auth"))
+          {
+            @Html.AntiForgeryToken()
+            <div class="row">
+              <div class="col-sm-7 border-right">
+                <div class="input-group">
+                  <span class="input-group-addon">Email:</span>
+                  @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                  @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon">Username:</span>
+                  @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                  @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon">Password:</span>
+                  @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                  @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+                <div class="input-group">
+                  <span class="input-group-addon">Repeat Password:</span>
+                  @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                  @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <input id="register-button" type="submit" value="NICE, REGISTER ME!" class="btn btn-primary btn-block custom-button" style="display: inline-block;">
+            </div>
+          }
+        </div>
+        <div class="modal-window login-window">
+          @using (Html.BeginForm("Login", "Auth"))
+          {
+            @Html.AntiForgeryToken()
+
+            <div class="half-horizontal">
+              @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+              <div class="input-group">
+                <span class="input-group-addon">Username:</span>
+                @Html.TextBoxFor(model => model.Username, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+              </div>
+            </div>
+            <div class="half-horizontal">
+              <div class="input-group">
+                <span class="input-group-addon">Password:</span>
+                @Html.PasswordFor(model => model.Password, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+              </div>
+            </div>
+            <div class="modal-footer">
+              <input id="login-button" type="submit" value="LOG IN ME!" class="btn btn-primary btn-block custom-button" style="display: inline-block;">
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

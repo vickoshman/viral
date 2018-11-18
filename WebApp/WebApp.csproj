@@ -54,6 +54,9 @@
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.7\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -97,7 +100,34 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content\fileupload\css\jquery.fileupload-ui.css" />
+    <Content Include="Content\fileupload\css\jquery.fileupload.css" />
+    <Content Include="Content\fileupload\js\jquery.fileupload-audio.js" />
+    <Content Include="Content\fileupload\js\jquery.fileupload-image.js" />
+    <Content Include="Content\fileupload\js\jquery.fileupload-process.js" />
+    <Content Include="Content\fileupload\js\jquery.fileupload-validate.js" />
+    <Content Include="Content\fileupload\js\jquery.fileupload-video.js" />
+    <Content Include="Content\fileupload\js\jquery.fileupload.js" />
+    <Content Include="Content\fileupload\js\jquery.iframe-transport.js" />
+    <Content Include="Content\fileupload\js\vendor\jquery.ui.widget.js" />
+    <Content Include="Content\jquery.mCustomScrollbar.css" />
+    <Content Include="Content\jquery.selectBoxIt.css" />
+    <Content Include="Content\jquery.tagsinput.css" />
+    <Content Include="Content\js\jquery.lazyload.min.js" />
+    <Content Include="Content\js\main.js" />
+    <Content Include="Content\js\retina-1.1.0.min.js" />
+    <Content Include="Content\style.css" />
+    <Content Include="Content\slider.css" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\vendor\bootstrap.min.js" />
+    <Content Include="Content\vendor\jquery-1.10.1.min.js" />
+    <Content Include="Content\vendor\jquery-ui.min.js" />
+    <Content Include="Content\vendor\jquery.flexslider-min.js" />
+    <Content Include="Content\vendor\jquery.mCustomScrollbar.min.js" />
+    <Content Include="Content\vendor\jquery.mousewheel.min.js" />
+    <Content Include="Content\vendor\jquery.selectBoxIt.min.js" />
+    <Content Include="Content\vendor\jquery.tagsinput.min.js" />
+    <Content Include="Content\vendor\modernizr-2.6.2-respond-1.1.0.min.js" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -117,9 +147,7 @@
     <Content Include="Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Auth\Login.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
-    <Content Include="Views\Auth\Signup.cshtml" />
     <Content Include="Views\Post\Create.cshtml" />
     <Content Include="Views\Post\Get.cshtml" />
     <Content Include="Views\Post\GetTop.cshtml" />
@@ -128,6 +156,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\PostController.cs" />
@@ -135,7 +164,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AuthUserModel.cs" />
     <Compile Include="Models\LoginUser.cs" />
+    <Compile Include="Models\CommentModel.cs" />
     <Compile Include="Models\PostModel.cs" />
     <Compile Include="Models\SignupUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -145,6 +176,7 @@
     <None Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Auth\PartialSignup.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

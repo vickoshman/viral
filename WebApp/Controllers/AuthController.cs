@@ -9,13 +9,8 @@ namespace WebApp.Controllers
 {
   public class AuthController : BaseController
   {
-    public ActionResult Login()
-    {
-      return View();
-    }
-
     [HttpPost]
-    public ActionResult Login(LoginUser authUser, string returnUrl)
+    public ActionResult Login(AuthUserModel authUser, string returnUrl)
     {
       if (Authenticate(authUser, out var user))
       {
@@ -24,25 +19,25 @@ namespace WebApp.Controllers
         if (!string.IsNullOrEmpty(returnUrl))
           return Redirect(returnUrl);
 
-        return RedirectToAction("Index", "Home");
+        return RedirectToAction("Index", "Home", user);
       }
 
-      return View(authUser);
+      return RedirectToAction("Index", "Home", user);
     }
 
-    public ActionResult Signup()
+    public ActionResult SignUp()
     {
-      return View("Signup");
+      return View("PartialSignup");
     }
 
     [HttpPost]
-    public ActionResult Signup(SignupUser signupUser)
+    public ActionResult SignUp(AuthUserModel signupUser)
     {
       User user;
       using (var cx = new ViralContext())
       {
         if (cx.Users.Any(u => u.Username == signupUser.Username))
-          return View("Signup", signupUser);
+          return View("PartialSignup", signupUser);
 
         user = cx.Users.Add(new User
         {
@@ -57,7 +52,7 @@ namespace WebApp.Controllers
       }
 
       FormsAuthentication.SetAuthCookie(user.Id.ToString(), true);
-      return RedirectToAction("Index", "Home");
+      return RedirectToAction("Index", "Home", user);
     }
 
     public ActionResult Logout()
@@ -67,7 +62,7 @@ namespace WebApp.Controllers
       return Redirect("/Home/Index");
     }
 
-    private bool Authenticate(LoginUser authUser, out User user)
+    private bool Authenticate(AuthUserModel authUser, out User user)
     {
       using (var cx = new ViralContext())
       {
