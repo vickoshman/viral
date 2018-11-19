@@ -28,7 +28,7 @@ namespace WebApp.Controllers
       return View("Get", new PostModel(post));
     }
 
-    public ActionResult GetTop(int skip)
+    public ActionResult GetTop(int pageIndex, int pageSize)
     {
       var posts = new List<PostModel>();
       using (var cx = new ViralContext())
@@ -43,7 +43,7 @@ namespace WebApp.Controllers
         }
       }
 
-      return View("GetTop", posts);
+      return Json(posts, JsonRequestBehavior.AllowGet);
     }
     
     [Authorize]
@@ -60,6 +60,7 @@ namespace WebApp.Controllers
       using (var cx = new ViralContext())
       {
         post.PostedTime = DateTime.UtcNow;
+        post.LastEditTime = post.PostedTime;
 
         if (currentUser.PostedPosts == null)
           currentUser.PostedPosts = new List<Post>();
@@ -98,7 +99,7 @@ namespace WebApp.Controllers
         if (savedPost == null)
           return RedirectToAction("Index", "Home");
 
-        post.PostedTime = savedPost.PostedTime;
+        post.LastEditTime = savedPost.LastEditTime;
         cx.Posts.AddOrUpdate(post);
         cx.SaveChanges();
 
@@ -183,7 +184,7 @@ namespace WebApp.Controllers
 
         cx.SaveChanges();
 
-        return GetTop(0);
+        return GetTop(0, 0);
       }
     }
   }
