@@ -1,0 +1,218 @@
+﻿@model WebApp.Models.PostModel
+
+@{
+  ViewBag.Title = "View";
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="main-wrap">
+  <article class="main-post post-page">
+    <div class="article-top">
+      <h1>@Model.Title</h1>
+      <hr />
+      <div class="counters-line">
+        <div class="pull-left">
+          <div class="user"><i class="icon-user"></i> <a href="@Model.AuthorAvatarPath">@Model.AuthorUsername</a></div>
+          <div class="comments"><i class="icon-comments"></i> <a href="#">@Model.CommentCount</a></div>
+        </div>
+        <div class="pull-right">
+          <div class="like"><a href="#"><i class="icon-like"></i>@Model.Likes</a></div>
+          <div class="dislike"><a href="#"><i class="icon-dislike"></i>@Model.Dislikes</a></div>
+        </div>
+      </div>
+      <div class="buttons-bar">
+        <div class="buttons">
+          <a href="#" class='repost has-tooltip' data-title="REPOST">Repost</a>
+          <a href="#" class='bookmark has-tooltip' data-title="BOOKMARK">bookmark</a>
+          <div class="count">2430</div>
+        </div>
+        <div class="social-icons">
+          <a href="javascript:void(0)" data-href="https://www.facebook.com/sharer/sharer.php?u=http://teothemes.com/html/Aruna" class='facebook has-tooltip' data-title="Share on Facebook">facebook</a>
+          <a href="javascript:void(0)" data-href="https://twitter.com/intent/tweet?source=tweetbutton&amp;text=Check the best image/meme sharing website!&url=http://teothemes.com/html/Aruna" class='twitter has-tooltip' data-title="Share on Twitter">twitter</a>
+          <a href="javascript:void(0)" data-href="https://plus.google.com/share?url=http://teothemes.com/html/Aruna" class='googleplus has-tooltip' data-title="Share on Google +">googleplus</a>
+          <a href="mailto:?subject=Check out the best image/meme sharing template!&amp;body=Hey there! Check out the best image/meme sharing template! http://teothemes.com/html/Aruna" class='mail has-tooltip' data-title="Share via Email">mail</a>
+        </div>
+      </div>
+    </div>
+    <div class="article-content">
+      <figure>
+        <img class="lazy" data-original="@Model.ContentPath" alt="" />
+      </figure>
+    </div>
+  </article>
+  <div class="article-infos">
+    <h2>Post tags</h2>
+    <hr />
+    <div class="tags">
+      <ul>
+        <li><a href="#">Bands</a></li>
+        <li><a href="#">White Snow</a></li>
+        <li><a href="#">Awesome</a></li>
+      </ul>
+    </div>
+    <div class="comments-counter">
+      <button class="btn btn-primary custom-button pull-right">Comment</button>
+      <div class="text">
+        <ul class="nav nav-tabs" id="myTab">
+          <li class="active"><a href="#normalComments">3 comments</a></li>
+          <li><a href="#facebookComments">Facebook comments</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="tab-content">
+      <div class="tab-pane active" id="normalComments">
+        <div class="comments-wrap">
+          <ul>
+            <li>
+              <div class="comment">
+                <figure>
+                  <img src="img/comment-user01.png" alt="" />
+                </figure>
+                <div class="comment-text">
+                  <span class="counter">01</span>
+                  <h3><a href="#">Darthy Vado</a></h3>
+                  <div class="like-box">
+                    <div class="like"><a href="#"><i class="icon-like"></i> 56</a></div>
+                    <div class="dislike"><a href="#"><i class="icon-dislike"></i> 32</a></div>
+                  </div>
+                  <hr />
+                  <div class="message">
+                    <p>Ask especially collecting terminated may son expression. Extremely eagerness principle estimable own was man. Men received far his dashwood subjects new.</p>
+                  </div>
+                  <div class="controls-box">
+                    <a href="#" class="button"><i class="icon-quote"></i></a>
+                    <a href="#" class="button"><i class="icon-replay"></i></a>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="comment">
+                <figure>
+                  <img src="img/comment-user02.png" alt="" />
+                </figure>
+                <div class="comment-text">
+                  <span class="counter">02</span>
+                  <h3><a href="#">Hello Delliah</a></h3>
+                  <div class="like-box">
+                    <div class="like"><a href="#"><i class="icon-like"></i> 12</a></div>
+                    <div class="dislike"><a href="#"><i class="icon-dislike"></i> 232</a></div>
+                  </div>
+                  <hr />
+                  <div class="message">
+                    <p>
+                      Seen you eyes son show. Far two unaffected one alteration apartments celebrated but middletons interested. Described deficient applauded consisted my me do. Passed edward two talent effect seemed engage six.
+                      On ye great do child sorry lived. Proceed cottage far letters ashamed get clothes day. Stairs regret at if matter to. On as needed almost at basket remain. By improved sensible servants children striking in surprise.
+                    </p>
+                  </div>
+                  <div class="controls-box">
+                    <a href="#" class="button"><i class="icon-quote"></i></a>
+                    <a href="#" class="button"><i class="icon-replay"></i></a>
+                  </div>
+                </div>
+              </div>
+              <ul>
+                <li>
+                  <div class="comment">
+                    <figure>
+                      <img src="img/comment-user03.png" alt="" />
+                    </figure>
+                    <div class="comment-text">
+                      <span class="counter">02.1</span>
+                      <h3><a href="#">Vincento L.</a></h3>
+                      <div class="like-box">
+                        <div class="like"><a href="#"><i class="icon-like"></i> 523</a></div>
+                        <div class="dislike"><a href="#"><i class="icon-dislike"></i> 42</a></div>
+                      </div>
+                      <hr />
+                      <div class="message">
+                        <p>
+                          Apartments simplicity or understood do it we. Song such eyes had and off. Removed winding ask explain delight out few behaved lasting. Letters old hastily ham sending not sex chamber because present. Oh is indeed twenty entire figure. Occasional diminution announcing new now literature terminated. Really regard excuse off ten pulled. Lady am room head so lady four or eyes an. He do of consulted sometimes concluded mr. An household behaviour if pretended.
+                        </p>
+                      </div>
+                      <div class="controls-box">
+                        <a href="#" class="button"><i class="icon-quote"></i></a>
+                        <a href="#" class="button"><i class="icon-replay"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                  <ul>
+                    <li>
+                      <div class="comment">
+                        <figure>
+                          <img src="img/comment-user03.png" alt="" />
+                        </figure>
+                        <div class="comment-text">
+                          <span class="counter">02.1.1</span>
+                          <h3><a href="#">Vincento L.</a></h3>
+                          <div class="like-box">
+                            <div class="like"><a href="#"><i class="icon-like"></i> 523</a></div>
+                            <div class="dislike"><a href="#"><i class="icon-dislike"></i> 42</a></div>
+                          </div>
+                          <hr />
+                          <div class="message">
+                            <p>
+                              Imagine was you removal raising gravity. Unsatiable understood or expression dissimilar so sufficient. Its party every heard and event gay. Advice he indeed things adieus in number so uneasy. To many four fact in he fail. My hung it quit next do of. It fifteen charmed by private savings it mr. Favourable cultivated alteration entreaties yet met sympathize. Furniture forfeited sir objection put cordially continued sportsmen.
+                            </p>
+                          </div>
+                          <div class="controls-box">
+                            <a href="#" class="button"><i class="icon-quote"></i></a>
+                            <a href="#" class="button"><i class="icon-replay"></i></a>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <div class="comment">
+                <figure>
+                  <img src="img/comment-user04.png" alt="" />
+                </figure>
+                <div class="comment-text">
+                  <span class="counter">03</span>
+                  <h3><a href="#">Coolstarry Bra</a></h3>
+                  <div class="like-box">
+                    <div class="like"><a href="#"><i class="icon-like"></i> 25</a></div>
+                    <div class="dislike"><a href="#"><i class="icon-dislike"></i> 71</a></div>
+                  </div>
+                  <hr />
+                  <div class="message">
+                    <p>
+                      Him rendered may attended concerns jennings reserved now. Sympathize did now preference unpleasing mrs few. Mrs for hour game room want are fond dare.
+                    </p>
+                  </div>
+                  <div class="controls-box">
+                    <a href="#" class="button"><i class="icon-quote"></i></a>
+                    <a href="#" class="button"><i class="icon-replay"></i></a>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <h2>Add Comment</h2>
+        <hr />
+        <div class="comments-form">
+          <div class="input-group">
+            <span class="input-group-addon"><img src="img/user-box.png" alt="" /></span>
+            <input type="text" class="form-control" value="Posting as teothemes" />
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon">Your Website:</span>
+            <input type="text" class="form-control" value="www.teothemes.com" />
+          </div>
+          <textarea class="form-control" rows="10"><quote ="1-Darthy Vado">She did open find pain some out. If we landlord stanhill mr whatever pleasure supplied concerns so. Exquisite by it admitting cordially september newspaper an. Acceptance middletons am it favourable. It it oh happen lovers afraid. </quote>
+                        Man, I can’t agree more|
+                    </textarea>
+          <input type="submit" value="Post comment" class="btn btn-primary btn-lg custom-button" />
+        </div>
+      </div>
+      <div class="tab-pane" id="facebookComments">
+        <div class="fb-comments" data-href="http://example.com/comments" data-colorscheme="light" data-numposts="5" data-width="400px"></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,14 +1,15 @@
-﻿<script type="text/html" id="post-preview-template">
+﻿@using System.Runtime.InteropServices
+<script type="text/html" id="post-preview-template">
   <article class="main-post">
     <div class="article-top">
       <h1>
-        <a href="post.html" data-bind="text: post.Title"></a>
+        <a data-bind="attr: { href: '../Post/Index/' + post.Id }, text: post.Title"></a>
       </h1>
       <hr />
       <div class="counters-line">
         <div class="pull-left">
           <div class="user">
-            <i class="icon-user"></i> <a href="profile.html" data-bind="text: post.AuthorUsername"></a>
+            <i class="icon-user"></i> <a data-bind="attr: { href: post.AuthorAvatarPath }, text: post.AuthorUsername"></a>
           </div>
           <div class="comments">
             <i class="icon-comments"></i> <a href="post.html" data-bind="text: post.CommentCount"></a>
@@ -16,10 +17,10 @@
         </div>
         <div class="pull-right">
           <div class="like">
-            <a href="#"><i class="icon-like" data-bind="text: post.Likes"></i></a>
+            <a href="#" data-bind="text: post.Likes"><i class="icon-like"></i></a>
           </div>
           <div class="dislike">
-            <a href="#"><i class="icon-dislike" data-bind="text: post.Dislikes"></i></a>
+            <a href="#" data-bind="text: post.Dislikes"><i class="icon-dislike"></i></a>
           </div>
         </div>
       </div>
@@ -39,9 +40,6 @@
     </div>
     <div class="article-content">
       <figure>
-        <div class="corner-tag green">
-          <a href="category.html">Gingerfun</a>
-        </div>
         <img class="lazy" data-bind="attr: { src: post.ContentPath }" alt="" />
       </figure>
     </div>

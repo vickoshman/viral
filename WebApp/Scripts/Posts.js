@@ -3,12 +3,22 @@ var pageIndex = 0;
 
 $(document).ready(function () {
   ko.applyBindings(new ViewModel());
-  GetData();
+  var lastLoadTime = Date.now();
+  //GetData();
 
+  var loading = false;
   $(window).scroll(function () {
-    if ($(window).scrollTop() ==
-      $(document).height() - $(window).height()) {
+    var currentScroll = $(window).scrollTop();
+    var docHeight = $(document).height();
+    var windowHeight = $(window).height();
+    var timeValid = (Date.now() - lastLoadTime) > 2000;
+    var preloadBefore = 3000;
+
+    if (!loading && timeValid && currentScroll >= docHeight - windowHeight - preloadBefore) {
+      loading = true;
       GetData();
+      loading = false;
+      lastLoadTime = Date.now();
     }
   });
 });

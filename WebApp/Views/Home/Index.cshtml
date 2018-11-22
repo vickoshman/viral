@@ -8,17 +8,5 @@
 <script src="~/Scripts/knockout-3.4.2.js"></script>
 <script src="~/Scripts/Posts.js" type="text/javascript"></script>
 
-
-@if (User.Identity.IsAuthenticated)
-{
-  <h2>Welcome, @Model.Username</h2>
-  @Html.ActionLink("Logout", "Logout", "Auth")
-}
-else
-{
-  @Html.ActionLink("Sign up", "Signup", "Auth")
-  @Html.ActionLink("Log in", "Login", "Auth")
-}
-
 <div data-bind="template: { name: 'post-preview-template', foreach: posts, as: 'post' }"></div>
 @Html.Partial("~/Views/Post/PostPreviewTemplate.cshtml")

@@ -11,7 +11,7 @@ namespace WebApp.Controllers
 {
   public class PostController : BaseController
   {
-    public ActionResult Get(int id)
+    public ActionResult Index(int id)
     {
       Post post;
       using (var cx = new ViralContext())
@@ -25,7 +25,7 @@ namespace WebApp.Controllers
           .SingleOrDefault();
       }
 
-      return View("Get", new PostModel(post));
+      return View(new PostModel(post));
     }
 
     public ActionResult GetTop(int pageIndex, int pageSize)
@@ -103,7 +103,7 @@ namespace WebApp.Controllers
         cx.Posts.AddOrUpdate(post);
         cx.SaveChanges();
 
-        return Get(post.Id);
+        return Index(post.Id);
       }
     }
     
